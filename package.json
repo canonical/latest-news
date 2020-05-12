@@ -6,9 +6,11 @@
   "iife": "dist/latest-news.js",
   "scripts": {
     "build": "rm -rf dist && rollup -c",
-    "lint-js": "eslint src/**/*.js && prettier src/**/*.js --check",
-    "prepublishOnly": "npm run build",
+    "serve": "http-server",
     "test": "jest",
+    "lint": "eslint src/**/*.js && prettier src/**/*.js --check",
+    "prepublishOnly": "npm run build",
+    "watch": "rollup -c -w",
     "clean": "rm -rf node_modules && rm -rf dist"
   },
   "repository": {
@@ -26,6 +28,7 @@
     "@babel/preset-env": "7.9.6",
     "eslint": "7.0.0",
     "eslint-config-prettier": "6.11.0",
+    "http-server": " 0.12.3",
     "jest": "26.0.1",
     "prettier": "2.0.5",
     "rollup": "2.9.1",
