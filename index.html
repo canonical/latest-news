@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>latest-news.js demo</title>
+  <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-2.10.1.min.css" />
+</head>
+<body>
+  <section class="p-strip is-deep is-bordered u-hide" data-js="latest-news">
+    <div class="row p-divider">
+      <div class="col-9">
+        <h3>Latest news from our blog</h3>
+        <div id="latest-articles" class="row">
+          <div style="min-height: 9.1rem"><i class="p-icon--spinner u-animation--spin">Loading...</i></div>
+        </div>
+      </div>
+
+      <div id="spotlight" class="col-3 p-divider__block">
+      </div>
+    </div>
+
+    <template style="display:none" id="articles-template">
+      <div class="col-3">
+        <h4><a class="article-link article-title"></a></h4>
+        <p class="u-no-padding--top"><em><time datetime="" class="article-time"></time></em></p>
+      </div>
+    </template>
+
+    <template style="display:none" id="spotlight-template">
+      <h3>Spotlight</h3>
+      <div>
+        <h4><a class="article-link article-title"></a></h4>
+        <p class="u-no-padding--top"><em><time datetime="" class="article-time"></time></em></p>
+      </div>
+    </template>
+
+    <div class="u-sv3"></div>
+
+    <div class="u-fixed-width">
+      <a href="/blog" class="p-button--neutral" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'blog', 'eventAction' : 'clicks blog feed link', 'eventLabel' : 'ubuntu.com homepage', 'eventValue' : undefined });">
+        View more from our blog
+      </a>
+    </div>
+
+    <script src="dist/latest-news.js"></script>
+    <script>
+      canonicalLatestNews.fetchLatestNews(
+        {
+          articlesContainerSelector: "#latest-articles",
+          articleTemplateSelector: "#articles-template",
+          spotlightContainerSelector: "#spotlight",
+          spotlightTemplateSelector: "#spotlight-template",
+          gtmEventLabel: "ubuntu.com homepage"
+        }
+      )
+    </script>
+  </section>
+</body>
+</html>
