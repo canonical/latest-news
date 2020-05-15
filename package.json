@@ -9,7 +9,7 @@
     "serve": "http-server",
     "test": "jest",
     "lint": "eslint src/**/*.js && prettier src/**/*.js --check",
-    "prepublishOnly": "npm run build",
+    "prepublishonly": "npm run build",
     "watch": "rollup -c -w",
     "clean": "rm -rf node_modules && rm -rf dist"
   },
