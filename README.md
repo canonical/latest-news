@@ -34,7 +34,7 @@ To consume the library directly, add a link to the JS file containing an IIFE an
 To import it, simply call it from your site-wide JS file:
 
 ```javascript
-import { fetchLatestNews } from "@canonical/global-nav";
+import { fetchLatestNews } from "@canonical/latest-news";
 fetchLatestNews({
   /* options */
 });
