@@ -119,33 +119,45 @@ function latestArticlesCallback(options) {
   return function (event) {
     var articlesContainer = document.querySelector(
       options.articlesContainerSelector
-    ); // Clear out latest news container
+    );
 
-    while (articlesContainer.hasChildNodes()) {
-      articlesContainer.removeChild(articlesContainer.lastChild);
-    }
-
-    var data = JSON.parse(event.target.responseText);
-
-    if ("spotlightContainerSelector" in options) {
-      var spotlightContainer = document.querySelector(
-        options.spotlightContainerSelector
-      );
-      var latestPinned = data.latest_pinned_articles[0];
-
-      if (latestPinned) {
-        spotlightContainer.appendChild(
-          articleDiv(latestPinned, options.spotlightTemplateSelector, options)
-        );
+    if (articlesContainer) {
+      while (articlesContainer.hasChildNodes()) {
+        articlesContainer.removeChild(articlesContainer.lastChild);
       }
-    }
 
-    if (data.latest_articles) {
-      data.latest_articles.forEach(function (article) {
-        articlesContainer.appendChild(
-          articleDiv(article, options.articleTemplateSelector, options)
+      var data = JSON.parse(event.target.responseText);
+
+      if ("spotlightContainerSelector" in options) {
+        var spotlightContainer = document.querySelector(
+          options.spotlightContainerSelector
         );
-      });
+        if (spotlightContainer) {
+          var latestPinned = data.latest_pinned_articles[0];
+
+          if (latestPinned) {
+            spotlightContainer.appendChild(
+              articleDiv(
+                latestPinned,
+                options.spotlightTemplateSelector,
+                options
+              )
+            );
+          }
+        } else {
+          console.warn("latest-news: No spotlight container found");
+        }
+      }
+
+      if (data.latest_articles) {
+        data.latest_articles.forEach(function (article) {
+          articlesContainer.appendChild(
+            articleDiv(article, options.articleTemplateSelector, options)
+          );
+        });
+      }
+    } else {
+      console.warn("latest-news: No articles container found");
     }
   };
 }
