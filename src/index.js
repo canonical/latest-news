@@ -137,11 +137,15 @@ function latestArticlesCallback(options) {
 
           if (latestPinned) {
             spotlightContainer.appendChild(
-              articleDiv(latestPinned, options.spotlightTemplateSelector, options)
+              articleDiv(
+                latestPinned,
+                options.spotlightTemplateSelector,
+                options
+              )
             );
           }
         } else {
-          console.warn('latest-news: No spotlight container found');
+          console.warn("latest-news: No spotlight container found");
         }
       }
 
@@ -153,7 +157,7 @@ function latestArticlesCallback(options) {
         });
       }
     } else {
-      console.warn('latest-news: No articles container found');
+      console.warn("latest-news: No articles container found");
     }
   };
 }
