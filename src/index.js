@@ -38,6 +38,7 @@ function articleDiv(article, articleTemplateSelector, options) {
   var title = articleFragment.querySelector(".article-title");
   var image = articleFragment.querySelector(".article-image");
   var url = "";
+  var imageLink = document.createElement("a");
 
   if (options.hostname) {
     url = "https://" + options.hostname;
@@ -86,13 +87,23 @@ function articleDiv(article, articleTemplateSelector, options) {
     title.innerHTML = article.title.rendered;
   }
 
+  if (image && articleImage && options.linkImage) {
+    imageLink.href = url + "/blog/" + article.slug;
+    image.appendChild(imageLink);
+  }
+
   if (image && articleImage) {
     var img = document.createElement("img");
     img.setAttribute("src", articleImage.url);
     img.setAttribute("alt", articleImage.alt);
     img.setAttribute("width", articleImage.width);
     img.setAttribute("height", articleImage.height);
-    image.appendChild(img);
+
+    if (options.linkImage) {
+      imageLink.appendChild(img);
+    } else {
+      image.appendChild(img);
+    }
   }
 
   return articleFragment;
@@ -132,6 +143,7 @@ function latestArticlesCallback(options) {
         var spotlightContainer = document.querySelector(
           options.spotlightContainerSelector
         );
+
         if (spotlightContainer) {
           var latestPinned = data.latest_pinned_articles[0];
 
