@@ -77,6 +77,7 @@ You will need to pass some options to the script in order for it to know where t
 - `gtmEventLabel`: String - An event label used for Google Analytics (Optional)
 - `hostname`: String - An optional hostname to be used for the permalink. By default the link is relative (Optional)
 - `limit`: Integer - The number of posts to be returned. (Optional)
+- `linkImage`: Boolean - Wrap the thumbnail image in a link (Optional)
 - `spotlightContainerSelector`: String - The container where the spotlight article will be displayed
 - `spotlightTemplateSelector`: String - The template that will be used for the spotlight article
 - `tagId`: Integer - Return posts with a specific tag (Optional)
