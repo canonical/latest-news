@@ -37,6 +37,7 @@ function articleDiv(article, articleTemplateSelector, options) {
   var link = articleFragment.querySelector(".article-link");
   var title = articleFragment.querySelector(".article-title");
   var image = articleFragment.querySelector(".article-image");
+  var author = articleFragment.querySelector(".article-author");
   var url = "";
   var imageLink = document.createElement("a");
 
@@ -61,6 +62,10 @@ function articleDiv(article, articleTemplateSelector, options) {
       width: media.media_details.width,
       height: media.media_details.height,
     };
+  }
+
+  if (author) {
+    author.innerHTML = article.author.name;
   }
 
   if (time) {
