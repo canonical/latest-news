@@ -39,7 +39,6 @@ function articleDiv(article, articleTemplateSelector, options) {
   var image = articleFragment.querySelector(".article-image");
   var author = articleFragment.querySelector(".article-author");
   var excerpt = articleFragment.querySelector(".article-excerpt");
-  var group = articleFragment.querySelector(".article-group");
   var url = "";
   var imageLink = document.createElement("a");
 
@@ -72,10 +71,6 @@ function articleDiv(article, articleTemplateSelector, options) {
 
   if (excerpt) {
     excerpt.innerHTML = article.excerpt.rendered;
-  }
-
-  if (group) {
-    group.innerHTML = article.group.name;
   }
 
   if (time) {
