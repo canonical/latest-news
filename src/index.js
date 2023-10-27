@@ -67,7 +67,7 @@ function articleDiv(article, articleTemplateSelector, options) {
           }
         }
 
-        excerpt.innerHTML = originalExcerpt + "&nbsp;&hellip;";
+        excerpt.innerHTML = originalExcerpt + "&hellip;";
       }
     } else {
       excerpt.innerHTML = article.excerpt.rendered;
