@@ -1,6 +1,6 @@
 {
   "name": "@canonical/latest-news",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "A script that loads blogs posts into a given template",
   "main": "src/index.js",
   "iife": "dist/latest-news.js",
@@ -8,21 +8,21 @@
     "build": "rm -rf dist && rollup -c",
     "serve": "http-server",
     "test": "jest",
-    "lint": "eslint src/**/*.js && prettier src/**/*.js --check",
+    "lint": "eslint src/**/*.js && prettier src/**/*.js --write",
     "prepublishOnly": "npm run build",
     "watch": "rollup -c -w",
     "clean": "rm -rf node_modules && rm -rf dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/canonical-web-and-design/latest-news.git"
+    "url": "git+https://github.com/canonical/latest-news.git"
   },
   "author": "Canonical",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/canonical-web-and-design/latest-news/issues"
+    "url": "https://github.com/canonical/latest-news/issues"
   },
-  "homepage": "https://github.com/canonical-web-and-design/latest-news#readme",
+  "homepage": "https://github.com/canonical/latest-news#readme",
   "devDependencies": {
     "@babel/core": "7.16.7",
     "@babel/preset-env": "7.16.7",

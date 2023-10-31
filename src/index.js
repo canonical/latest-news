@@ -71,7 +71,36 @@ function articleDiv(article, articleTemplateSelector, options) {
   }
 
   if (excerpt) {
-    excerpt.innerHTML = article.excerpt.rendered;
+    if (options.excerptLength) {
+      var originalExcerpt = article.excerpt.rendered;
+
+      if (originalExcerpt.length <= options.excerptLength) {
+        excerpt.innerHTML = originalExcerpt;
+      } else {
+        var lastSpaceIndex = originalExcerpt.lastIndexOf(
+          " ",
+          options.excerptLength
+        );
+
+        if (lastSpaceIndex === -1) {
+          lastSpaceIndex = options.excerptLength;
+        }
+
+        originalExcerpt = originalExcerpt.substring(0, lastSpaceIndex);
+
+        for (var i = originalExcerpt.length - 1; i >= 0; i--) {
+          if (!/[a-zA-Z0-9]/.test(originalExcerpt[i])) {
+            originalExcerpt = originalExcerpt.substring(0, i);
+          } else {
+            break;
+          }
+        }
+
+        excerpt.innerHTML = originalExcerpt + "&hellip;";
+      }
+    } else {
+      excerpt.innerHTML = article.excerpt.rendered;
+    }
   }
 
   if (group) {
