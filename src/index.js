@@ -231,6 +231,8 @@ function fetchLatestNews(options) {
     options.tagIds.forEach(id => {
       params.push("tag-id=" + encodeURIComponent(id));
     });
+  } else if (options.tagId) {
+    params.push("tag-id=" + encodeURIComponent(options.tagId));
   }
 
   if (options.groupId) {
