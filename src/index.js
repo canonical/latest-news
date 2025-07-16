@@ -227,11 +227,12 @@ function fetchLatestNews(options) {
     params.push("limit=" + options.limit);
   }
 
-  if (options.tagIds && Array.isArray(options.tagIds)) {
-    options.tagIds.forEach(id => {
+  if (options.tagIds) {
+    const tagIdArray = options.tagIds.split(",").map(id => id.trim());
+    tagIdArray.forEach(id => {
       params.push("tag-id=" + encodeURIComponent(id));
     });
-  } else if (options.tagId) {
+  } else if (options.tagId !== undefined) {
     params.push("tag-id=" + encodeURIComponent(options.tagId));
   }
 
