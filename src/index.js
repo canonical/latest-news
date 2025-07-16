@@ -227,8 +227,10 @@ function fetchLatestNews(options) {
     params.push("limit=" + options.limit);
   }
 
-  if (options.tagId) {
-    params.push("tag-id=" + options.tagId);
+  if (options.tagIds && Array.isArray(options.tagIds)) {
+    options.tagIds.forEach(id => {
+      params.push("tag-id=" + encodeURIComponent(id));
+    });
   }
 
   if (options.groupId) {
