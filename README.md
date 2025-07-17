@@ -84,6 +84,7 @@ You will need to pass some options to the script in order for it to know where t
 - `spotlightContainerSelector`: String - The container where the spotlight article will be displayed (Optional)
 - `spotlightTemplateSelector`: String - The template that will be used for the spotlight article (Optional)
 - `tagId`: Integer - Return posts with a specific tag (Optional)
+- `tagIds`: String(comma separated tagids i.e. "id1,id2,id3") - Return posts with all tags (Optional)
 - `excerptLength`: Integer - Specifies the approximate number of characters included in the excerpt (Optional)
 
 ## Building

@@ -228,8 +228,10 @@ function fetchLatestNews(options) {
   }
 
   if (options.tagIds) {
-    const tagIdArray = options.tagIds.split(",").map(id => id.trim());
-    tagIdArray.forEach(id => {
+    var tagIdArray = options.tagIds.split(",").map(function (id) {
+      return id.trim();
+    });
+    tagIdArray.forEach(function (id) {
       params.push("tag-id=" + encodeURIComponent(id));
     });
   } else if (options.tagId !== undefined) {
