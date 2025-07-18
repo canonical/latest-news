@@ -227,8 +227,15 @@ function fetchLatestNews(options) {
     params.push("limit=" + options.limit);
   }
 
-  if (options.tagId) {
-    params.push("tag-id=" + options.tagId);
+  if (options.tagIds) {
+    var tagIdArray = options.tagIds.split(",").map(function (id) {
+      return id.trim();
+    });
+    tagIdArray.forEach(function (id) {
+      params.push("tag-id=" + encodeURIComponent(id));
+    });
+  } else if (options.tagId !== undefined) {
+    params.push("tag-id=" + encodeURIComponent(options.tagId));
   }
 
   if (options.groupId) {
