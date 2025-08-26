@@ -59,6 +59,6 @@ env[23]/
 *.css
 
 node_modules
-dist
+# dist
 npm-debug.log
 package-lock.json
