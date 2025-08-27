@@ -138,7 +138,7 @@ function articleDiv(article, articleTemplateSelector, options) {
 
   if (image && articleImage) {
     var img = document.createElement("img");
-    var lazyLoadImage = options.lazyLoadImage !== false;
+    var lazyLoadImage = options.lazyLoadImage ?? true;
     var cloudinaryBaseUrl = "https://res.cloudinary.com/canonical/image/fetch/";
     var cloudinaryOptions = "f_auto,q_auto,fl_sanitize";
     var cdn_url =
