@@ -86,6 +86,7 @@ You will need to pass some options to the script in order for it to know where t
 - `tagId`: Integer - Return posts with a specific tag (Optional)
 - `tagIds`: String(comma separated tagids i.e. "id1,id2,id3") - Return posts with all tags (Optional)
 - `excerptLength`: Integer - Specifies the approximate number of characters included in the excerpt (Optional)
+- `lazyLoadImage`: Boolean - Enable lazy loading for images to improve page performance by loading images only when they enter the viewport. By default, it is true (Optional)
 
 ## Building
 

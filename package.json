@@ -1,6 +1,6 @@
 {
   "name": "@canonical/latest-news",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "description": "A script that loads blogs posts into a given template",
   "main": "src/index.js",
   "iife": "dist/latest-news.js",

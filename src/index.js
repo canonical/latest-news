@@ -138,8 +138,19 @@ function articleDiv(article, articleTemplateSelector, options) {
 
   if (image && articleImage) {
     var img = document.createElement("img");
-    img.setAttribute("src", articleImage.url);
+    var lazyLoadImage =
+      options.lazyLoadImage !== undefined && options.lazyLoadImage !== null
+        ? options.lazyLoadImage
+        : true;
+    var cloudinaryBaseUrl = "https://res.cloudinary.com/canonical/image/fetch/";
+    var cloudinaryOptions = "f_auto,q_auto,fl_sanitize";
+    var cdn_url =
+      cloudinaryBaseUrl +
+      cloudinaryOptions +
+      ",w_".concat(articleImage.width, "/");
+    img.setAttribute("src", cdn_url + articleImage.url);
     img.setAttribute("alt", articleImage.alt);
+    img.setAttribute("loading", lazyLoadImage ? "lazy" : "auto");
     img.setAttribute("width", articleImage.width);
     img.setAttribute("height", articleImage.height);
 
