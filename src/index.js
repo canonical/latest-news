@@ -137,13 +137,10 @@ function articleDiv(article, articleTemplateSelector, options) {
   }
 
   if (image && articleImage) {
-    var _options$lazyLoadImag;
-
     var img = document.createElement("img");
     var lazyLoadImage =
-      (_options$lazyLoadImag = options.lazyLoadImage) !== null &&
-      _options$lazyLoadImag !== void 0
-        ? _options$lazyLoadImag
+      options.lazyLoadImage !== undefined && options.lazyLoadImage !== null
+        ? options.lazyLoadImage
         : true;
     var cloudinaryBaseUrl = "https://res.cloudinary.com/canonical/image/fetch/";
     var cloudinaryOptions = "f_auto,q_auto,fl_sanitize";
