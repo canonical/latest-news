@@ -55,6 +55,7 @@ You will need a template that follows this structure to display the latest news 
   <p>
     <em><time datetime="" class="article-time"></time></em>
   </p>
+  <p class="article-author"></p>
 </template>
 ```
 
@@ -66,6 +67,7 @@ The script will look for the following class names to use as hooks for content w
 - `article-image`: The featured image of the article
 - `article-excerpt`: The excerpt of the article
 - `article-group`: The group of the article
+- `article-author`: The author(s) of the article
 
 
 You can choose what content to display and how it will look by using the above classes. If you don't want a certain part of the content, for example the article image, then do not include an element with the class name of `article-image`.
