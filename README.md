@@ -81,6 +81,7 @@ You will need to pass some options to the script in order for it to know where t
 - `groupId`: Integer - Return posts in a specific group (Optional)
 - `gtmEventLabel`: String - An event label used for Google Analytics (Optional)
 - `hostname`: String - An optional hostname to be used for the permalink. By default the link is relative (Optional)
+- `imageClasses`: Array<String> - A list of classes that will be added to the image element (Optional)
 - `limit`: Integer - The number of posts to be returned (Optional)
 - `linkImage`: Boolean - Wrap the thumbnail image in a link (Optional)
 - `spotlightContainerSelector`: String - The container where the spotlight article will be displayed (Optional)

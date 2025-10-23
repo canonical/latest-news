@@ -154,6 +154,10 @@ function articleDiv(article, articleTemplateSelector, options) {
     img.setAttribute("width", articleImage.width);
     img.setAttribute("height", articleImage.height);
 
+    if (options.imageClasses) {
+      img.classList.add(...options.imageClasses);
+    }
+
     if (options.linkImage) {
       imageLink.appendChild(img);
     } else {
