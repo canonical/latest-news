@@ -72,6 +72,10 @@ The script will look for the following class names to use as hooks for content w
 
 You can choose what content to display and how it will look by using the above classes. If you don't want a certain part of the content, for example the article image, then do not include an element with the class name of `article-image`.
 
+#### Blog Pattern
+
+You can also render blog posts fetched by this module using Jinja pattern called `Blog`. More information about the pattern and its usage can be found in the [Vanilla documentation](https://vanillaframework.io/docs/patterns/blog#:~:text=and%20citation%20metadata.-,Dynamic%20content,-For%20scenarios%20where).
+
 ### Options
 
 You will need to pass some options to the script in order for it to know where the template is and where it should be rendered to. These are:
@@ -90,6 +94,7 @@ You will need to pass some options to the script in order for it to know where t
 - `tagIds`: String(comma separated tagids i.e. "id1,id2,id3") - Return posts with all tags (Optional)
 - `excerptLength`: Integer - Specifies the approximate number of characters included in the excerpt (Optional)
 - `lazyLoadImage`: Boolean - Enable lazy loading for images to improve page performance by loading images only when they enter the viewport. By default, it is true (Optional)
+- `lang`: String - Defines the language in which blog posts are written. Available options are `cn` and `jp`. If not specified, English is used (Optional)
 
 ## Building
 

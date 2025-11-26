@@ -234,8 +234,16 @@ function latestArticlesCallback(options) {
 }
 
 function fetchLatestNews(options) {
-  var url = "https://ubuntu.com/blog/latest-news";
-  var params = [];
+  let url = `https://ubuntu.com/blog/latest-news`;
+  if (options.lang) {
+    if (options.lang == "cn") {
+      url = "https://ubuntu.com/cn-blog/latest-news";
+    } else if (options.lang == "jp") {
+      url = "https://ubuntu.com/jp-blog/latest-news";
+    }
+  }
+
+  const params = [];
   revealSection();
 
   if (options.limit) {
@@ -243,7 +251,7 @@ function fetchLatestNews(options) {
   }
 
   if (options.tagIds) {
-    var tagIdArray = options.tagIds.split(",").map(function (id) {
+    const tagIdArray = options.tagIds.split(",").map(function (id) {
       return id.trim();
     });
     tagIdArray.forEach(function (id) {
@@ -261,7 +269,7 @@ function fetchLatestNews(options) {
     url += "?" + params.join("&");
   }
 
-  var oReq = new XMLHttpRequest();
+  const oReq = new XMLHttpRequest();
   oReq.addEventListener("load", latestArticlesCallback(options));
   oReq.open("GET", url);
   oReq.send();
