@@ -234,14 +234,7 @@ function latestArticlesCallback(options) {
 }
 
 function fetchLatestNews(options) {
-  let url = `https://ubuntu.com/blog/latest-news`;
-  if (options.lang) {
-    if (options.lang == "cn") {
-      url = "https://ubuntu.com/cn-blog/latest-news";
-    } else if (options.lang == "jp") {
-      url = "https://ubuntu.com/jp-blog/latest-news";
-    }
-  }
+  let url = options.url || "/blog/latest-news";
 
   const params = [];
   revealSection();

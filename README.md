@@ -94,7 +94,7 @@ You will need to pass some options to the script in order for it to know where t
 - `tagIds`: String(comma separated tagids i.e. "id1,id2,id3") - Return posts with all tags (Optional)
 - `excerptLength`: Integer - Specifies the approximate number of characters included in the excerpt (Optional)
 - `lazyLoadImage`: Boolean - Enable lazy loading for images to improve page performance by loading images only when they enter the viewport. By default, it is true (Optional)
-- `lang`: String - Defines the language in which blog posts are written. Available options are `cn` and `jp`. If not specified, English is used (Optional)
+- `url`: String - By default API URL is `/blog/latest-news`, but in case it should be something else you can pass this optional parameter (Optional)
 
 ## Building
 
