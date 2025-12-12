@@ -149,7 +149,7 @@ function articleDiv(article, articleTemplateSelector, options) {
       cloudinaryOptions +
       ",w_".concat(articleImage.width, "/");
     img.setAttribute("src", cdn_url + articleImage.url);
-    img.setAttribute("alt", articleImage.alt);
+    img.setAttribute("alt", articleImage.alt || "Blog image");
     img.setAttribute("loading", lazyLoadImage ? "lazy" : "auto");
     img.setAttribute("width", articleImage.width);
     img.setAttribute("height", articleImage.height);
