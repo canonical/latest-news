@@ -1,4 +1,5 @@
 function revealSection() {
+  // trigger CI check
   var latestNewsSection = document.querySelector("[data-js='latest-news']");
 
   if (latestNewsSection) {
