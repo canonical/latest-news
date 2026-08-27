@@ -64,8 +64,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          VERSION_PATTERN='(?<="version": ")[^"]+'
-          IGNORE_PATTERN='^(\.github/|README\.md$)'
+          ALLOW_PATTERN='^(src/|package.json$|rollup.config.js$|babel.config.js$)'
 
           git fetch origin "${{ github.base_ref }}"
           BASE_SHA=$(git merge-base "origin/${{ github.base_ref }}" HEAD)
@@ -74,7 +73,7 @@ jobs:
           echo "Changed files:"
           echo "$CHANGED_FILES"
 
-          if ! echo "$CHANGED_FILES" | grep -vP "$IGNORE_PATTERN" | grep -q .; then
+          if ! echo "$CHANGED_FILES" | grep -qP "$ALLOW_PATTERN"; then
             echo "No relevant changes, skipping version check."
             exit 0
           fi
@@ -84,11 +83,17 @@ jobs:
             exit 1
           fi
 
-          OLD_VERSION=$(git show "$BASE_SHA:package.json" | grep -oP "$VERSION_PATTERN" || true)
-          NEW_VERSION=$(grep -oP "$VERSION_PATTERN" package.json || true)
+          OLD_VERSION=$(git show "$BASE_SHA:package.json" | jq -r .version)
+          NEW_VERSION=$(jq -r .version package.json)
 
           if [ "$OLD_VERSION" = "$NEW_VERSION" ]; then
             echo "::error::package.json was modified but the version string was not changed ($OLD_VERSION). Please bump the version."
+            exit 1
+          fi
+
+          HIGHEST_VERSION=$(printf '%s\n%s' "$OLD_VERSION" "$NEW_VERSION" | sort -V | tail -n1)
+          if [ "$HIGHEST_VERSION" != "$NEW_VERSION" ]; then
+            echo "::error::New version ($NEW_VERSION) is not higher than the previous version ($OLD_VERSION). Please bump the version upwards."
             exit 1
           fi
 
