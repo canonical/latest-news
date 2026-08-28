@@ -82,6 +82,7 @@ You will need to pass some options to the script in order for it to know where t
 
 - `articlesContainerSelector`: String - The container where the articles will be displayed
 - `articleTemplateSelector`: String - The template that will be used for the article
+- `allArticles`: Boolean - Fetch the latest posts in a single list regardless of sticky status, so featured (sticky) posts are included in the main container instead of being split into the spotlight slot (Optional)
 - `groupId`: Integer - Return posts in a specific group (Optional)
 - `gtmEventLabel`: String - An event label used for Google Analytics (Optional)
 - `hostname`: String - An optional hostname to be used for the permalink. By default the link is relative (Optional)

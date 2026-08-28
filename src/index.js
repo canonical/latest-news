@@ -243,6 +243,10 @@ function fetchLatestNews(options) {
     params.push("limit=" + options.limit);
   }
 
+  if (options.allArticles) {
+    params.push("all-articles=true");
+  }
+
   if (options.tagIds) {
     const tagIdArray = options.tagIds.split(",").map(function (id) {
       return id.trim();
